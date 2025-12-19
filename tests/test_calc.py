@@ -24,9 +24,20 @@ def test_add():
 #引き算を検証するテスト（途中まで記述）
 def test_subtract():
     client = app.test_client()
-    res = post(client, {　　　　　　　　})
+    res = post(client, {"a": 2, "op": "-", "b": 3})
     assert res.status_code == 200
-    assert res.get_json()["result"] == 
+    assert res.get_json()["result"] == -1.0 
 
 
 #他のテスト項目も記述してみよう（仕様書を参考に）
+def test_kakezan():
+    client = app.test_client()
+    res = post(client, {"a": 2, "op": "*", "b": 3})
+    assert res.status_code == 200
+    assert res.get_json()["result"] == 6.0 
+    
+def test_warizan():
+    client = app.test_client()
+    res = post(client, {"a": 6, "op": "/", "b": 3})
+    assert res.status_code == 200
+    assert res.get_json()["result"] == 2.0 
