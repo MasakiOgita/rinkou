@@ -46,4 +46,4 @@ def test_waru0():
     client = app.test_client()
     res = post(client, {"a": 6, "op": "/", "b": 0})
     assert res.status_code == 200
-    assert res.get_json()["result"] == "DIVIDE_BY_ZERO" 
+    assert res.get_json()["result"] == {"error": "DIVIDE_BY_ZERO"} 
