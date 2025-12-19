@@ -41,3 +41,9 @@ def test_warizan():
     res = post(client, {"a": 6, "op": "/", "b": 3})
     assert res.status_code == 200
     assert res.get_json()["result"] == 2.0 
+    
+def test_waru0():
+    client = app.test_client()
+    res = post(client, {"a": 6, "op": "/", "b": 0})
+    assert res.status_code == 200
+    assert res.get_json()["result"] == "DIVIDE_BY_ZERO" 
